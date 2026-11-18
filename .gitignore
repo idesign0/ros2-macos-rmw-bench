@@ -4,3 +4,4 @@ log/
 tools/*.dylib
 tools/nanosleep_tick
 tools/os_sync_wait_demo
+__pycache__/
