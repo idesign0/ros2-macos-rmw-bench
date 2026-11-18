@@ -12,7 +12,7 @@
 //   bench sleeponly <hz> <secs>   std::this_thread::sleep_until alone
 // Environment:
 //   BDEPTH   subscriber KEEP_LAST depth (default 100)     PDEPTH  fpub publisher depth (default 1)
-//   BREL=1   fsub uses RELIABLE instead of BEST_EFFORT    BNOIPC=1 intra without intra-process comms
+//   BREL=1   fsub/fpub use RELIABLE instead of BEST_EFFORT    BNOIPC=1 intra without intra-process comms
 //   BPER     burst period in ms for `pub burst` (default 16)  DISC_MS discovery wait (default 1500)
 #include <rclcpp/rclcpp.hpp>
 #include <std_msgs/msg/u_int8_multi_array.hpp>
@@ -91,7 +91,8 @@ int main(int argc, char ** argv) {
   if (what == "fpub") {  // fpub <hz> <secs> [timer|sleep|max]
     auto node = std::make_shared<rclcpp::Node>("fpub"); double hz = atof(argv[2]), secs = atof(argv[3]);
     std::string mode = argc > 4 ? argv[4] : "timer";
-    auto pub = node->create_publisher<std_msgs::msg::Float64>("fbench", rclcpp::QoS(getenv("PDEPTH") ? atoi(getenv("PDEPTH")) : 1).best_effort());
+    auto pq = rclcpp::QoS(getenv("PDEPTH") ? atoi(getenv("PDEPTH")) : 1); if (getenv("BREL")) {pq.reliable();} else {pq.best_effort();}
+    auto pub = node->create_publisher<std_msgs::msg::Float64>("fbench", pq);
     std::this_thread::sleep_for(std::chrono::milliseconds(getenv("DISC_MS") ? atoi(getenv("DISC_MS")) : 1500));
     uint64_t n = 0; int64_t end = now_ns() + (int64_t)(secs * 1e9), t0 = now_ns();
     auto send = [&] {std_msgs::msg::Float64 m; m.data = (double)now_ns(); pub->publish(m); n++;};

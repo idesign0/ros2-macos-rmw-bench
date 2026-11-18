@@ -1,6 +1,10 @@
 cmake_minimum_required(VERSION 3.16)
 project(rmw_rate_bench)
 set(CMAKE_CXX_STANDARD 17)
+# Benchmark numbers depend on it: colcon's default (no build type) compiles header-only rclcpp/message code at -O0.
+if(NOT CMAKE_BUILD_TYPE)
+  set(CMAKE_BUILD_TYPE Release)
+endif()
 find_package(ament_cmake REQUIRED)
 find_package(rclcpp REQUIRED)
 find_package(std_msgs REQUIRED)

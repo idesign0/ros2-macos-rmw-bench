@@ -1,0 +1,93 @@
+### build type: CXX_FLAGSarm64 = -O3 -DNDEBUG -std=gnu++17 -arch arm64
+CXX_FLAGS = -O3 -DNDEBUG -std=gnu++17 -arch arm64
+### Darwin Mac.fritz.box 27.0.0 Darwin Kernel Version 27.0.0: Tue Aug 11 21:02:16 PDT 2026; root:xnu-13432.1.9~1/RELEASE_ARM64_T8112 arm64
+### load: 12:38  up 13 days, 15:52, 3 users, load averages: 2.43 2.99 3.24
+### 1. sensor_2khz depth=1
+fastdds          depth=1    received 402 Hz  latency p50 955 us  p99 9751 us;received 354 Hz  latency p50 544 us  p99 5166 us;
+fastdds-udp      depth=1    received 1995 Hz  latency p50 87 us  p99 204 us;received 1995 Hz  latency p50 82 us  p99 172 us;
+cyclone          depth=1    received 1998 Hz  latency p50 97 us  p99 163 us;received 2000 Hz  latency p50 85 us  p99 151 us;
+cyclone-iceoryx  depth=1    received 2000 Hz  latency p50 36 us  p99 71 us;received 1998 Hz  latency p50 33 us  p99 69 us;
+zenoh-nobatch    depth=1    received 2000 Hz  latency p50 151 us  p99 190 us;received 1988 Hz  latency p50 150 us  p99 191 us;
+### 2. max_rate
+fastdds          sleep  5000     sent=20000 achieved=5000 Hz | received 100.0% | uniq=19999 dup=0 fsub n=19999 rate=5005 Hz lost=0 | latency us p50=2916 p99=5650 max=5991
+fastdds          sleep  20000    sent=80000 achieved=20000 Hz | received 99.9% | uniq=79959 dup=0 fsub n=79959 rate=20015 Hz lost=0 | latency us p50=3111 p99=5685 max=13301
+fastdds          sleep  50000    sent=200000 achieved=50000 Hz | received 96.0% | uniq=192004 dup=0 fsub n=192004 rate=48098 Hz lost=0 | latency us p50=3490 p99=5814 max=41971
+fastdds          sleep  100000   sent=400000 achieved=100000 Hz | received 1.5% | uniq=5919 dup=0 fsub n=5919 rate=1482 Hz lost=0 | latency us p50=253903 p99=614400 max=687893
+fastdds          sleep  150000   sent=463044 achieved=115761 Hz | received 0.0% | uniq=215 dup=0 fsub n=215 rate=54 Hz lost=0 | latency us p50=2075425 p99=2781289 max=2788469
+fastdds          sleep  200000   sent=458722 achieved=114680 Hz | received 0.1% | uniq=581 dup=0 fsub n=581 rate=145 Hz lost=0 | latency us p50=110835 p99=2261800 max=2279374
+fastdds          sleep  300000   sent=466406 achieved=116601 Hz | received 0.1% | uniq=320 dup=0 fsub n=320 rate=80 Hz lost=0 | latency us p50=1591676 p99=2265992 max=2283142
+fastdds          max    0        sent=466709 achieved=116677 Hz | received 0.0% | uniq=178 dup=0 fsub n=178 rate=46 Hz lost=0 | latency us p50=1588093 p99=2926923 max=2932620
+fastdds-udp      sleep  5000     sent=20000 achieved=5000 Hz | received 100.0% | uniq=20000 dup=0 fsub n=20000 rate=5000 Hz lost=0 | latency us p50=55 p99=116 max=10327
+fastdds-udp      sleep  20000    sent=80000 achieved=20000 Hz | received 100.0% | uniq=80000 dup=0 fsub n=80000 rate=20001 Hz lost=0 | latency us p50=48 p99=103 max=1263
+fastdds-udp      sleep  50000    sent=200000 achieved=50000 Hz | received 100.0% | uniq=200000 dup=0 fsub n=200000 rate=50002 Hz lost=0 | latency us p50=82 p99=20386 max=21308
+fastdds-udp      sleep  100000   sent=400000 achieved=100000 Hz | received 51.4% | uniq=205505 dup=0 fsub n=205505 rate=51376 Hz lost=0 | latency us p50=79689 p99=82418 max=82956
+fastdds-udp      sleep  150000   sent=521503 achieved=130375 Hz | received 37.2% | uniq=194159 dup=0 fsub n=194159 rate=48539 Hz lost=0 | latency us p50=84514 p99=86749 max=87231
+fastdds-udp      sleep  200000   sent=515482 achieved=128870 Hz | received 38.5% | uniq=198618 dup=0 fsub n=198618 rate=49655 Hz lost=0 | latency us p50=82455 p99=85374 max=86574
+fastdds-udp      sleep  300000   sent=511962 achieved=127990 Hz | received 37.4% | uniq=191606 dup=0 fsub n=191606 rate=47901 Hz lost=0 | latency us p50=82691 p99=205176 max=206698
+fastdds-udp      max    0        sent=512287 achieved=128071 Hz | received 40.6% | uniq=208120 dup=0 fsub n=208120 rate=52030 Hz lost=0 | latency us p50=78763 p99=80936 max=81518
+cyclone          sleep  5000     sent=20000 achieved=5000 Hz | received 100.0% | uniq=20000 dup=0 fsub n=20000 rate=5000 Hz lost=0 | latency us p50=51 p99=66 max=203
+cyclone          sleep  20000    sent=80000 achieved=20000 Hz | received 100.0% | uniq=80000 dup=0 fsub n=80000 rate=20001 Hz lost=0 | latency us p50=19 p99=36 max=313
+cyclone          sleep  50000    sent=200000 achieved=50000 Hz | received 100.0% | uniq=200000 dup=0 fsub n=200000 rate=50003 Hz lost=0 | latency us p50=22 p99=52 max=17212
+cyclone          sleep  100000   sent=400000 achieved=100000 Hz | received 100.0% | uniq=400000 dup=0 fsub n=400000 rate=100007 Hz lost=0 | latency us p50=24 p99=7648 max=21994
+cyclone          sleep  150000   sent=600060 achieved=150015 Hz | received 100.0% | uniq=600029 dup=0 fsub n=600029 rate=150015 Hz lost=0 | latency us p50=38 p99=32155 max=33814
+cyclone          sleep  200000   sent=800000 achieved=200000 Hz | received 63.8% | uniq=510625 dup=0 fsub n=510625 rate=127659 Hz lost=0 | latency us p50=40955 p99=59889 max=75151
+cyclone          sleep  300000   sent=1075119 achieved=268779 Hz | received 23.1% | uniq=247856 dup=0 fsub n=247856 rate=61966 Hz lost=0 | latency us p50=90793 p99=112353 max=114050
+cyclone          max    0        sent=1070486 achieved=267621 Hz | received 23.4% | uniq=250159 dup=0 fsub n=250159 rate=62540 Hz lost=0 | latency us p50=87840 p99=111968 max=113938
+cyclone-iceoryx  sleep  5000     sent=20000 achieved=5000 Hz | received 100.0% | uniq=20000 dup=0 fsub n=20000 rate=5000 Hz lost=0 | latency us p50=8 p99=23 max=57
+cyclone-iceoryx  sleep  20000    sent=80000 achieved=20000 Hz | received 100.0% | uniq=80000 dup=0 fsub n=80000 rate=20000 Hz lost=0 | latency us p50=6 p99=22 max=354
+cyclone-iceoryx  sleep  50000    sent=200000 achieved=50000 Hz | received 100.0% | uniq=200000 dup=0 fsub n=200000 rate=50001 Hz lost=0 | latency us p50=6 p99=18 max=173
+cyclone-iceoryx  sleep  100000   sent=400000 achieved=100000 Hz | received 100.0% | uniq=400000 dup=0 fsub n=400000 rate=100001 Hz lost=0 | latency us p50=8 p99=21 max=521
+cyclone-iceoryx  sleep  150000   sent=600060 achieved=150015 Hz | received 100.0% | uniq=600013 dup=0 fsub n=600013 rate=150005 Hz lost=0 | latency us p50=9 p99=23 max=674
+cyclone-iceoryx  sleep  200000   sent=800000 achieved=199999 Hz | received 100.0% | uniq=799860 dup=0 fsub n=799860 rate=199967 Hz lost=0 | latency us p50=10 p99=27 max=507
+cyclone-iceoryx  sleep  300000   sent=1200119 achieved=300029 Hz | received 98.8% | uniq=1185428 dup=0 fsub n=1185428 rate=296362 Hz lost=0 | latency us p50=17 p99=566 max=719
+cyclone-iceoryx  max    0        sent=6368110 achieved=1592026 Hz | received 19.6% | uniq=1246864 dup=0 fsub n=1246864 rate=311703 Hz lost=0 | latency us p50=81 p99=355 max=486
+zenoh            sleep  5000     sent=20000 achieved=5000 Hz | received 100.0% | uniq=20000 dup=0 fsub n=20000 rate=5000 Hz lost=0 | latency us p50=33 p99=69 max=218
+zenoh            sleep  20000    sent=80000 achieved=20000 Hz | received 100.0% | uniq=80000 dup=0 fsub n=80000 rate=20002 Hz lost=0 | latency us p50=31 p99=52 max=383
+zenoh            sleep  50000    sent=200000 achieved=50000 Hz | received 100.0% | uniq=199936 dup=0 fsub n=199936 rate=49988 Hz lost=0 | latency us p50=37 p99=2108 max=2408
+zenoh            sleep  100000   sent=400000 achieved=100000 Hz | received 86.9% | uniq=347404 dup=0 fsub n=347404 rate=86859 Hz lost=0 | latency us p50=542 p99=2364 max=3552
+zenoh            sleep  150000   sent=600060 achieved=150015 Hz | received 72.7% | uniq=436480 dup=0 fsub n=436480 rate=109117 Hz lost=0 | latency us p50=736 p99=2401 max=3598
+zenoh            sleep  200000   sent=800000 achieved=199999 Hz | received 62.2% | uniq=497325 dup=0 fsub n=497325 rate=124322 Hz lost=0 | latency us p50=961 p99=2437 max=3618
+zenoh            sleep  300000   sent=1200119 achieved=300029 Hz | received 49.4% | uniq=592690 dup=0 fsub n=592690 rate=148156 Hz lost=0 | latency us p50=1546 p99=2483 max=3041
+zenoh            max    0        sent=6241121 achieved=1560277 Hz | received 10.6% | uniq=661228 dup=0 fsub n=661228 rate=163756 Hz lost=0 | latency us p50=44121 p99=50347 max=51866
+zenoh-nobatch    sleep  5000     sent=20000 achieved=5000 Hz | received 100.0% | uniq=20000 dup=0 fsub n=20000 rate=5000 Hz lost=0 | latency us p50=33 p99=78 max=287
+zenoh-nobatch    sleep  20000    sent=80000 achieved=20000 Hz | received 100.0% | uniq=80000 dup=0 fsub n=80000 rate=20001 Hz lost=0 | latency us p50=31 p99=53 max=315
+zenoh-nobatch    sleep  50000    sent=200000 achieved=50000 Hz | received 100.0% | uniq=200000 dup=0 fsub n=200000 rate=50003 Hz lost=0 | latency us p50=33 p99=65 max=304
+zenoh-nobatch    sleep  100000   sent=367476 achieved=91869 Hz | received 100.0% | uniq=367476 dup=0 fsub n=367476 rate=91874 Hz lost=0 | latency us p50=53 p99=97 max=426
+zenoh-nobatch    sleep  150000   sent=367799 achieved=91949 Hz | received 100.0% | uniq=367799 dup=0 fsub n=367799 rate=91956 Hz lost=0 | latency us p50=53 p99=96 max=548
+zenoh-nobatch    sleep  200000   sent=351942 achieved=87985 Hz | received 100.0% | uniq=351942 dup=0 fsub n=351942 rate=87995 Hz lost=0 | latency us p50=55 p99=116 max=519
+zenoh-nobatch    sleep  300000   sent=365377 achieved=91344 Hz | received 100.0% | uniq=365377 dup=0 fsub n=365377 rate=91351 Hz lost=0 | latency us p50=53 p99=96 max=435
+zenoh-nobatch    max    0        sent=366193 achieved=91548 Hz | received 100.0% | uniq=366193 dup=0 fsub n=366193 rate=91555 Hz lost=0 | latency us p50=53 p99=97 max=453
+### 3. large messages (UInt8MultiArray, 2 kHz offered, sub depth 10)
+fastdds-udp         65536 B | sent=4980 | sub n=4980 rate=2000 Hz latency us p50=131 p99=195 
+fastdds-udp        262144 B | sent=4980 | sub n=4964 rate=1994 Hz latency us p50=154 p99=324 
+fastdds-udp       1048576 B | sent=4980 | sub n=4429 rate=1780 Hz latency us p50=429 p99=668 
+fastdds-udp       4194304 B | sent=2682 | sub n=0 rate=0 Hz latency us p50=0 p99=0 
+cyclone             65536 B | sent=4980 | sub n=4980 rate=2000 Hz latency us p50=209 p99=232 
+cyclone            262144 B | sent=4980 | sub n=4946 rate=1989 Hz latency us p50=357 p99=512 
+cyclone           1048576 B | sent=4977 | sub n=4865 rate=1964 Hz latency us p50=554 p99=659 
+cyclone           4194304 B | sent=1228 | sub n=39 rate=16 Hz latency us p50=3273 p99=4602 
+cyclone-iceoryx     65536 B | sent=4990 | sub n=4990 rate=2000 Hz latency us p50=22 p99=35 
+cyclone-iceoryx    262144 B | sent=4809 | sub n=4809 rate=1912 Hz latency us p50=32 p99=77 
+cyclone-iceoryx   1048576 B | sent=4944 | sub n=4944 rate=1982 Hz latency us p50=100 p99=301 
+cyclone-iceoryx   4194304 B |  | sub n=0 rate=0 Hz latency us p50=0 p99=0 
+zenoh               65536 B | sent=4989 | sub n=4989 rate=2000 Hz latency us p50=86 p99=116 
+zenoh              262144 B | sent=4990 | sub n=4990 rate=2000 Hz latency us p50=173 p99=210 
+zenoh             1048576 B | sent=4989 | sub n=4989 rate=2000 Hz latency us p50=399 p99=608 
+zenoh             4194304 B | sent=2165 | sub n=2165 rate=869 Hz latency us p50=1533 p99=2626 
+zenoh-shm           65536 B | sent=4986 | sub n=4986 rate=1999 Hz latency us p50=66 p99=93 
+zenoh-shm          262144 B | sent=4987 | sub n=4987 rate=1999 Hz latency us p50=78 p99=112 
+zenoh-shm         1048576 B | sent=4984 | sub n=4984 rate=1999 Hz latency us p50=128 p99=159 
+zenoh-shm         4194304 B | sent=4885 | sub n=4885 rate=1961 Hz latency us p50=296 p99=1446 
+### 4. same process (16 B UInt8MultiArray), intra-process on / off
+rmw_fastrtps_cpp     ipc=on   100000 Hz | pub sent=149498 achieved=100000 Hz intra-sub n=148451 rate=99314 Hz lost=1047 | latency us p50=4 p99=64 max=4206
+rmw_fastrtps_cpp     ipc=on   200000 Hz | pub sent=298994 achieved=199999 Hz intra-sub n=297856 rate=199257 Hz lost=1138 | latency us p50=5 p99=57 max=671
+rmw_fastrtps_cpp     ipc=on   500000 Hz | pub sent=747470 achieved=499998 Hz intra-sub n=732207 rate=489849 Hz lost=15263 | latency us p50=3 p99=197 max=358
+rmw_fastrtps_cpp     ipc=off  100000 Hz | pub sent=149497 achieved=100000 Hz intra-sub n=147291 rate=98549 Hz lost=2206 | latency us p50=7 p99=890 max=1438
+rmw_fastrtps_cpp     ipc=off  200000 Hz | pub sent=298993 achieved=199999 Hz intra-sub n=276923 rate=185274 Hz lost=22070 | latency us p50=15 p99=563 max=2168
+rmw_fastrtps_cpp     ipc=off  500000 Hz | pub sent=422768 achieved=282793 Hz intra-sub n=183092 rate=122494 Hz lost=239597 | latency us p50=335 p99=594 max=1581
+rmw_cyclonedds_cpp   ipc=on   100000 Hz | pub sent=149495 achieved=100000 Hz intra-sub n=149495 rate=100008 Hz lost=0 | latency us p50=3 p99=19 max=895
+rmw_cyclonedds_cpp   ipc=on   200000 Hz | pub sent=298995 achieved=200000 Hz intra-sub n=295689 rate=197797 Hz lost=3306 | latency us p50=5 p99=442 max=732
+rmw_cyclonedds_cpp   ipc=on   500000 Hz | pub sent=747486 achieved=499999 Hz intra-sub n=691495 rate=462549 Hz lost=55991 | latency us p50=155 p99=204 max=770
+rmw_cyclonedds_cpp   ipc=off  100000 Hz | pub sent=149497 achieved=100000 Hz intra-sub n=148216 rate=99290 Hz lost=1216 | latency us p50=7 p99=347 max=1281
+rmw_cyclonedds_cpp   ipc=off  200000 Hz | pub sent=298994 achieved=200000 Hz intra-sub n=277923 rate=186166 Hz lost=20973 | latency us p50=10 p99=163 max=13975
+rmw_cyclonedds_cpp   ipc=off  500000 Hz | pub sent=599620 achieved=401091 Hz intra-sub n=11672 rate=7807 Hz lost=587867 | latency us p50=239 p99=480 max=2721

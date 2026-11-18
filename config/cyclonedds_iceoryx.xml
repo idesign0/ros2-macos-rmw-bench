@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Cyclone DDS with iceoryx shared memory. Requires iox-roudi to be running.
+     export RMW_IMPLEMENTATION=rmw_cyclonedds_cpp
+     export CYCLONEDDS_URI=file://$PWD/config/cyclonedds_iceoryx.xml -->
+<CycloneDDS xmlns="https://cdds.io/config">
+  <Domain id="any">
+    <SharedMemory>
+      <Enable>true</Enable>
+      <LogLevel>warn</LogLevel>
+    </SharedMemory>
+  </Domain>
+</CycloneDDS>

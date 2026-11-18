@@ -21,9 +21,10 @@ use_config() {
     cyclone)          export RMW_IMPLEMENTATION=rmw_cyclonedds_cpp ;;
     cyclone-iceoryx)  export RMW_IMPLEMENTATION=rmw_cyclonedds_cpp CYCLONEDDS_URI="$ICEORYX_URI"; start_roudi ;;
     zenoh)            export RMW_IMPLEMENTATION=rmw_zenoh_cpp; start_zenohd ;;
+    zenoh-nobatch)    export RMW_IMPLEMENTATION=rmw_zenoh_cpp ZENOH_CONFIG_OVERRIDE='transport/link/tx/queue/batching/enabled=false'; start_zenohd ;;
     zenoh-shm)        export RMW_IMPLEMENTATION=rmw_zenoh_cpp ZENOH_CONFIG_OVERRIDE='transport/shared_memory/enabled=true'; start_zenohd ;;
     *) echo "unknown config $1"; exit 1 ;;
   esac
 }
 done_config() { case "$1" in cyclone-iceoryx) stop_roudi ;; zenoh*) stop_zenohd ;; esac; }
-ALL_CONFIGS="fastdds fastdds-udp cyclone cyclone-iceoryx zenoh"
+ALL_CONFIGS="fastdds fastdds-udp cyclone cyclone-iceoryx zenoh zenoh-nobatch"

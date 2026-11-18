@@ -1,4 +1,5 @@
-// shm_tick_repro: `repro pub` and `repro sub` in two terminals (same host, default transports).
+// repro: minimal 2 kHz std_msgs/Float64 pub/sub. `repro sub <depth>` and `repro pub <depth>` in two terminals.
+// Env: EXECUTOR=events uses rclcpp EventsExecutor instead of the default SingleThreadedExecutor.
 #include <algorithm>
 #include <chrono>
 #include <cstdio>
@@ -6,6 +7,7 @@
 #include <memory>
 #include <vector>
 #include <rclcpp/rclcpp.hpp>
+#include <rclcpp/experimental/executors/events_executor/events_executor.hpp>
 #include <std_msgs/msg/float64.hpp>
 using namespace std::chrono;
 static double now_us() {return duration<double, std::micro>(steady_clock::now().time_since_epoch()).count();}
@@ -32,6 +34,14 @@ int main(int argc, char ** argv)
       printf("received %.0f Hz  latency p50 %.0f us  p99 %.0f us\n", lat.size() / 2.0, lat[lat.size() / 2], lat[lat.size() * 99 / 100]);
       fflush(stdout); lat.clear();});
   }
-  rclcpp::spin(node);
+  if (getenv("EXECUTOR") && !strcmp(getenv("EXECUTOR"), "events")) {
+    rclcpp::experimental::executors::EventsExecutor ex;
+    ex.add_node(node);
+    ex.spin();
+  } else {
+    rclcpp::executors::SingleThreadedExecutor ex;
+    ex.add_node(node);
+    ex.spin();
+  }
   rclcpp::shutdown();
 }
