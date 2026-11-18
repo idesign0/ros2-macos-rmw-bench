@@ -1,0 +1,10 @@
+cyclone          sleep  50000    sent=200000 achieved=50000 Hz | received 100.0% | latency us p50=22 p99=161 max=7792
+cyclone          sleep  100000   sent=400000 achieved=100000 Hz | received 100.0% | latency us p50=25 p99=6955 max=22196
+cyclone          sleep  50000    sent=200000 achieved=50000 Hz | received 100.0% | latency us p50=22 p99=60 max=15108
+cyclone          sleep  100000   sent=400000 achieved=100000 Hz | received 100.0% | latency us p50=25 p99=9455 max=24690
+cyclone          sleep  50000    sent=200000 achieved=50000 Hz | received 100.0% | latency us p50=22 p99=53 max=12743
+cyclone          sleep  100000   sent=400000 achieved=100000 Hz | received 100.0% | latency us p50=26 p99=8239 max=23435
+cyclone-iceoryx  sleep  150000   sent=600060 achieved=150015 Hz | received 100.0% | latency us p50=9 p99=51 max=1578
+cyclone-iceoryx  sleep  200000   sent=799999 achieved=200000 Hz | received 99.9% | latency us p50=10 p99=92 max=543
+cyclone-iceoryx  sleep  150000   sent=600060 achieved=150015 Hz | received 100.0% | latency us p50=9 p99=25 max=670
+cyclone-iceoryx  sleep  200000   sent=800000 achieved=200000 Hz | received 99.9% | latency us p50=10 p99=40 max=547

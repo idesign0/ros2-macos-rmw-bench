@@ -1,0 +1,24 @@
+not found: "/opt/homebrew/opt/ros2-kilted/share/plansys2_bringup/local_setup.bash"
+not found: "/opt/homebrew/opt/ros2-kilted/share/rtabmap_util/local_setup.bash"
+### sensor_2khz.sh 1
+fastdds          depth=1    received 351 Hz  latency p50 534 us  p99 5034 us;received 361 Hz  latency p50 621 us  p99 5141 us;
+fastdds-udp      depth=1    received 1969 Hz  latency p50 95 us  p99 2892 us;received 1996 Hz  latency p50 104 us  p99 188 us;
+cyclone          depth=1    received 1998 Hz  latency p50 90 us  p99 161 us;received 2000 Hz  latency p50 94 us  p99 163 us;
+cyclone-iceoryx  depth=1    received 1999 Hz  latency p50 37 us  p99 78 us;received 2000 Hz  latency p50 39 us  p99 74 us;
+zenoh            depth=1    received 2000 Hz  latency p50 101 us  p99 207 us;[2m2026-11-18T10:59:35.696131Z[0m [31mERROR[0m rx-0 ThreadId(07) [2mzenoh::api::session[0m[2m:[0m Received Data for unknown expr_id: 11;
+### max_rate.sh
+cyclone          sleep  20000    sent=80000 achieved=20000 Hz | received 100.0% | uniq=80000 dup=0 fsub n=80000 rate=20002 Hz lost=0 | latency us p50=19 p99=45 max=2235
+cyclone          sleep  100000   sent=399999 achieved=100000 Hz | received 100.0% | uniq=399999 dup=0 fsub n=399999 rate=100006 Hz lost=0 | latency us p50=25 p99=3806 max=18392
+fastdds-udp      sleep  20000    sent=80000 achieved=20000 Hz | received 100.0% | uniq=80000 dup=0 fsub n=80000 rate=20000 Hz lost=0 | latency us p50=50 p99=9671 max=30023
+fastdds-udp      sleep  100000   sent=400000 achieved=100000 Hz | received 46.8% | uniq=187235 dup=0 fsub n=187235 rate=46810 Hz lost=0 | latency us p50=86956 p99=97076 max=99412
+### iceoryx_bugs.sh
+== cyclone-iceoryx
+  rclcpp BEST_EFFORT pub -> rclcpp RELIABLE sub : uniq=7992 dup=0 (expected 0: incompatible QoS)
+  rclcpp pub -> rclpy sub                        : rclpy best_effort depth=100: callbacks=15947 unique=7974
+  rclpy pub -> rclcpp sub                        : uniq=6193 dup=6193
+  rclpy pub -> rclpy sub                         : rclpy best_effort depth=100: callbacks=5335 unique=5335
+== cyclone
+  rclcpp BEST_EFFORT pub -> rclcpp RELIABLE sub : uniq=0 dup=0 (expected 0: incompatible QoS)
+  rclcpp pub -> rclpy sub                        : rclpy best_effort depth=100: callbacks=7999 unique=7999
+  rclpy pub -> rclcpp sub                        : uniq=6208 dup=0
+  rclpy pub -> rclpy sub                         : rclpy best_effort depth=100: callbacks=5261 unique=5261

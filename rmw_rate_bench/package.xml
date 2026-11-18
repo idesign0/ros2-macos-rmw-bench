@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<package format="3">
+  <name>rmw_rate_bench</name>
+  <version>0.1.0</version>
+  <description>Inter-process topic rate and latency benchmark for ROS 2 RMWs (macOS focus)</description>
+  <maintainer email="dhruvpatel2991998@gmail.com">Dhruv Patel</maintainer>
+  <license>MIT</license>
+  <buildtool_depend>ament_cmake</buildtool_depend>
+  <depend>rclcpp</depend>
+  <depend>std_msgs</depend>
+  <export><build_type>ament_cmake</build_type></export>
+</package>
